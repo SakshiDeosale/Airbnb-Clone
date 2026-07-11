@@ -60,7 +60,7 @@ body{
 /* cards */
 .listing-card{
  border: none !important;
- margin-bottom: 2rem;
+ 
 }
 
 .card-img-top{
@@ -109,4 +109,240 @@ body{
 .show-card{
     padding-left: 0;
     padding-right: 0;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+/* Navbar */
+
+.navbar {
+    background: #fff;
+    padding: 10px 18px;
+}
+
+.navbar>.container-fluid {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    color: #fe424d !important;
+    margin-right: 0;
+    flex-shrink: 0;
+}
+
+.search-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-inp {
+    border-radius: 30px;
+    padding: 8px 16px;
+      
+}
+
+.search-btn {
+    border-radius: 30px;
+    background: #fe424d;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+   
+}
+
+.search-btn:hover {
+    background: #fe424d;
+    color: #fff;
+}
+
+.navbar-toggler {
+    flex-shrink: 0;
+}
+
+/* Mobile */
+
+@media (max-width:768px) {
+
+    .search-btn {
+        padding: 8px 12px;
+    }
+
+    .search-btn i {
+        margin: 0;
+    }
+
+    .search-btn {
+        font-size: 0;
+    }
+
+    .search-btn i {
+        font-size: 15px;
+    }
+
+    .search-inp {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 15px;
+        border-top: 1px solid #ddd;
+        z-index: 1000;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+}
+
+/* ============================
+   SHOW PAGE STYLES (fixed)
+   ============================ */
+
+.show-image {
+    height: 30vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Edit / Delete buttons container */
+.btns {
+    display: flex;
+   
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    margin-left: 270px;
+}
+
+.btns .edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+    padding: 8px 30px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.btns form {
+    margin: 0;
+}
+
+.btns form button {
+    background-color: #222 !important;
+    border: none !important;
+    padding: 8px 24px;
+    white-space: nowrap;
+}
+
+/* Review cards row */
+.reviews-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    margin: 0 !important;
+    width: 100%;
+}
+
+.reviews-row .card {
+    flex: 1 1 calc(50% - 15px) !important;
+    max-width: calc(50% - 8px) !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+/* ============================
+   MOBILE (<=768px)
+   ============================ */
+@media (max-width: 768px) {
+
+    .row{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .row.mt-3 h3 {
+        text-align: center;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        padding: 0 15px;
+    }
+
+    .show-image {
+        height: 25vh;
+    }
+
+    .btns {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 15px;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .btns .edit-btn,
+    .btns form,
+    .btns form button {
+        width: 100%;
+    }
+
+    .starability-slot {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .reviews-row {
+        padding: 0 15px;
+    }
+
+    .reviews-row .card {
+        max-width: 100% !important;
+        flex: 1 1 100% !important;
+    }
+
+    #map {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .show-card .card-body {
+        font-size: 14px;
+    }
+
+    .starability-slot label {
+        font-size: 0.85rem;
+    }
 }

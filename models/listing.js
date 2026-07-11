@@ -11,16 +11,16 @@ const listingSchema = new Schema({
         type:String,
     },
     image : {
-        type:String,
-        default: "https://i.postimg.cc/QCrJmJ81/pexels-souvenirpixels-414612.jpg",
-        set:(v) =>
-         v==="" 
-        ? "https://i.postimg.cc/QCrJmJ81/pexels-souvenirpixels-414612.jpg"
-          :v,
+        url: String,
+        filename: String,
     },
     price : Number,
     location : String,
     country : String,
+    category: {     // New field added for filtering
+        type: String,
+        required: true,
+    },
     reviews: [
         {
             type: Schema.Types.ObjectId,
