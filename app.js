@@ -13,6 +13,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo").default;
 const flash = require("connect-flash");
 const passport = require("passport");
+const Listing = require("./models/listing");
 const passportLocal = require("passport-local");
 const User = require("./models/user.js");
 
@@ -29,10 +30,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,"/public")));
 const dns = require("dns");
 const { error } = require('console');
+const router = require('./route/user.js');
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 const dbUrl = process.env.ATLAS_DB_URL;
-console.log("DB:", dbUrl);
 
 main()
      .then(()=> console.log("Connection created"))
@@ -66,10 +67,6 @@ const sessionOption ={
   },
 };
 
-// app.get("/",(req,res)=>{
-//   res.send("Hi, I am Sakshi ");
-// });
-
 
 app.use(session(sessionOption));
 app.use(flash());   //use before all routes
@@ -87,7 +84,10 @@ app.use((req,res,next) => {
   next();
 });
 
-
+router.get("/", async (req, res) => {
+  const allListings = await Listing.find({});
+  res.render("listings/index", { allListings });
+});
 // app.get("/demouser", async(req,res) => {
 //      let fakeUser = new User({
 //       email: "sakshi@gmail.com",
