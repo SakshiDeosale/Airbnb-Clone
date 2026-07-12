@@ -120,48 +120,67 @@
 
             <% } %>
 
-                <% if(currUser){ %>
-
+            
               <p><b>All Reviews</b></p>
-           
-                  
-
-              <div class="reviews-row">
-
-                <% for(review of listing.reviews){ %>
-
-                  <div class="card">
-
-                    <div class="card-body">
-
-                      <h5 class="card-title">
-                        @<%= review.author.username %>
-                      </h5>
-
-                      <p class="starability-result" data-rating="<%= review.rating %>"></p>
-
-                      <p class="card-text">
-                        <%= review.comment %>
-                      </p>
-
-                      <form class="mb-3" method="POST"
-                        action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-
-                        <button class="btn btn-sm btn-dark">
-                          Delete
-                        </button>
-
-                      </form>
-
-                    </div>
-
+              
+              <% if(listing.reviews.length===0){ %>
+              
+                <div class="alert alert-light border mt-3">
+              
+                  There are no reviews available for this place.
+              
+                  <% if(!currUser){ %>
+              
+                    <a href="/login">Click here</a> to leave a review.
+              
+                    <% } %>
+              
+                </div>
+              
+                <% } else { %>
+              
+                  <div class="reviews-row">
+              
+                    <% for(let review of listing.reviews){ %>
+              
+                      <div class="card">
+              
+                        <div class="card-body">
+              
+                          <h5 class="card-title">
+                            @<%= review.author.username %>
+                          </h5>
+              
+                          <p class="starability-result" data-rating="<%= review.rating %>">
+                          </p>
+              
+                          <p class="card-text">
+                            <%= review.comment %>
+                          </p>
+              
+                          <% if(currUser && review.author._id.equals(currUser._id)){ %>
+              
+                            <form class="mb-3" method="POST"
+                              action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+              
+                              <button class="btn btn-sm btn-dark">
+                                Delete
+                              </button>
+              
+                            </form>
+              
+                            <% } %>
+              
+                        </div>
+              
+                      </div>
+              
+                      <% } %>
+              
                   </div>
-
+              
                   <% } %>
-
-              </div>
                 
-              <% } %>
 
         </div>
 
