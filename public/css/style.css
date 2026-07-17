@@ -231,7 +231,6 @@ body{
 /* Edit / Delete buttons container */
 .btns {
     display: flex;
-   
     align-items: center;
     gap: 12px;
     margin: 15px 0;
@@ -242,7 +241,7 @@ body{
 .btns .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
-    padding: 8px 30px !important;
+    padding: 30px 30px !important;
     white-space: nowrap;
     text-align: center;
 }
